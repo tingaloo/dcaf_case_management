@@ -14,6 +14,7 @@ gem 'pundit', '~> 1.0', '>= 1.0.1'
 gem 'mongoid', '~> 5.0.0'
 gem 'mongoid-history', '~> 0.5.0'
 gem 'bson_ext'
+gem 'factory_girl_rails'
 
 group :development, :test do
   gem 'byebug'
@@ -25,7 +26,6 @@ group :test do
   gem 'minitest-reporters'
   gem 'mini_backtrace'
   gem 'minitest-spec-rails'
-  gem 'factory_girl_rails'
   gem 'faker'
 end
 
