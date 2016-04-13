@@ -12,3 +12,14 @@
         </div>
 	</div>
 </section>
+
+<div>
+<% @pregnancy.notes.each do |note| %>
+	<div>
+		<span><%= note.created_at.getlocal.strftime("%-m/%-d") %></span>
+		<span><%= note.created_at.getlocal.strftime("%l:%M %P") %></span>
+		<span><%= "user" %></span>
+		<p><%= note.full_text %></p>
+	</div>
+<% end %>
+</div>
