@@ -5,7 +5,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'minitest/reporters'
 require 'capybara/rails'
-require 'capybara/poltergeist'
+# require 'capybara/poltergeist'
 Minitest::Reporters.use!
 # Capybara.javascript_driver = :poltergeist
 

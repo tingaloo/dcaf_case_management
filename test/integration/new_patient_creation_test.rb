@@ -2,7 +2,7 @@ require 'test_helper'
 
 class NewPatientCreationTest < ActionDispatch::IntegrationTest
   before do
-    Capybara.current_driver = :poltergeist
+    Capybara.current_driver = :selenium
     @user = create :user
     log_in_as @user
   end
