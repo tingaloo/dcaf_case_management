@@ -46,7 +46,7 @@ group :test do
   gem 'faker'
   gem 'database_cleaner'
   gem 'capybara'
-  gem 'poltergeist'
+  gem 'selenium-webdriver'
   gem 'simplecov', require: false
   gem 'launchy'
 end
