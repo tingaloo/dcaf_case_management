@@ -294,6 +294,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    secure_headers (3.3.2)
+      useragent
     sexp_processor (4.7.0)
     simplecov (0.11.2)
       docile (~> 1.1.0)
@@ -324,6 +326,7 @@ GEM
       kgio (~> 2.6)
       raindrops (~> 0.7)
     url (0.3.2)
+    useragent (0.16.7)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -382,6 +385,7 @@ DEPENDENCIES
   ruby_audit
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  secure_headers
   simplecov
   spring
   timecop

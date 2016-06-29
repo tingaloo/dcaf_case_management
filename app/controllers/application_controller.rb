@@ -5,6 +5,15 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # Enables secureheaders
+  SecureHeaders::Configuration.default do |config|
+    config.csp = {
+      default_src: ["'self'"],
+      script_src: [(ENV['SITE_URL'] || 'localhost'), "'self'"],
+      connect_src: ["'self'"]
+    }
+  end
+
   # whitelists name attribute in devise
   def configure_permitted_parameters
     [:name].each do |sym|

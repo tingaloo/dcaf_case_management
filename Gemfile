@@ -21,6 +21,7 @@ gem 'bootstrap_form-datetimepicker'
 gem 'quality', require: false
 gem 'nokogiri', '>= 1.6.8'
 gem 'newrelic_rpm'
+gem 'secure_headers'
 
 group :development do
   gem 'web-console', '~> 2.0'
