@@ -8,9 +8,10 @@ class ApplicationController < ActionController::Base
   # Enables secureheaders
   SecureHeaders::Configuration.default do |config|
     config.csp = {
-      default_src: ["'self'"],
-      script_src: [(ENV['SITE_URL'] || 'localhost'), "'self'"],
-      connect_src: ["'self'"]
+      default_src: ['*'],
+      script_src: [(ENV['SITE_URL'] || 'localhost'), "'self'", 'https://www.google-analytics.com', "'unsafe-inline'"],
+      connect_src: ["'self'", "'unsafe-inline'"],
+      style_src: ["'self'", "'unsafe-inline'"]
     }
   end
 
