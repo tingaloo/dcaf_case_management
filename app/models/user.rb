@@ -21,7 +21,7 @@ class User
   field :name, type: String
   field :line, type: String
   field :role, type: String
-  field :call_order, type: String
+  field :call_order, type: Array
 
   ## Database authenticatable
   field :email,              type: String, default: ''
@@ -90,6 +90,7 @@ class User
 
   def ordered_pregnancies
     return call_list_pregnancies unless call_order
+    puts call_order
     split_order = call_order.split(',')
     # TODO reject pregnancies not in call list?
 
