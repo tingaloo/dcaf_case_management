@@ -18,8 +18,10 @@ class UsersController < ApplicationController
 
   def reorder_call_list
     # TODO: fail if anything is not a BSON id
+    puts params
     current_user.reorder_call_list params[:order] # TODO: adjust to payload
-    respond_to { |format| format.js }
+    head :ok
+    # respond_to { |format| format.js }
   end
 
   private
