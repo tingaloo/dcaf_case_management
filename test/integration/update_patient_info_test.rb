@@ -4,7 +4,7 @@ class UpdatePatientInfoTest < ActionDispatch::IntegrationTest
   before do
     Capybara.current_driver = :poltergeist
     @user = create :user
-    @clinic = create :clinic
+    @clinic = create :clinic, accepts_naf: false
     @patient = create :patient
     @pregnancy = create :pregnancy, patient: @patient
     @ext_pledge = create :external_pledge,
@@ -80,6 +80,28 @@ class UpdatePatientInfoTest < ActionDispatch::IntegrationTest
         assert has_field? 'National Abortion Federation pledge', with: '50'
         assert has_field? 'DCAF pledge', with: '25'
         assert has_field? 'Baltimore Abortion Fund pledge', with: '25'
+      end
+    end
+  end
+
+  describe 'should enable NAF only clinics', js: true do
+    it 'should enable NAF only clinics' do
+      click_link 'Abortion Information'
+
+      find('input#naf_filter').click
+      # check 'naf_filter'
+      assert has_checked_field?('naf_filter')
+
+      wait_for_ajax
+      # select @clinic.name, from: 'patient_clinic_id'
+      # sleep(5)
+      within :css, '#patient_clinic_id' do
+
+        page.has_selector?('option', :text => @clinic.name)
+        assert_equal true, page.has_selector?("option", :text => @clinic.name)
+        # assert_equal false, find('option', :text => @clinic.name)['data-naf']
+        assert_equal 'disabled', find('option', text: @clinic.name, match: :prefer_exact)[:disabled]
+        # assert_equal true, find_field('option', {disabled: true})
       end
     end
   end
