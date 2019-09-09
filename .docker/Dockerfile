@@ -30,9 +30,9 @@ RUN apk update && apk upgrade && \
 RUN ln -s `which nodejs` /usr/bin/node
 
 # install gemfile and package
-RUN bundle install
-RUN yarn install
-
+# RUN bundle install
+# RUN yarn install
+RUN rails webpack:install
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
 
